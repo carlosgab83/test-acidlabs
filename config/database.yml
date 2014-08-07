@@ -11,7 +11,7 @@ default: &default
 
 development:
  adapter: postgresql
- host:ec2-54-204-24-154.compute-1.amazonaws.com
+ host: ec2-54-204-24-154.compute-1.amazonaws.com
  database: d4juptprn2rrpk
  username: siinlujnsotkkc
  password: DrefF8ACzrI4mI6iSvwcWPqMXh
