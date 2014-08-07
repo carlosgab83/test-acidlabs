@@ -1,0 +1,24 @@
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundle
+Post-install message from twitter-bootstrap-rails
+Important: You may need to add a javascript runti
+ bootstrap's LESS files to compile to CSS.
+
+**********************************************
+
+ExecJS supports these runtimes:
+
+therubyracer - Google V8 embedded within Ruby
+
+therubyrhino - Mozilla Rhino embedded within JRub
+
+Node.js
+
+Apple JavaScriptCore - Included with Mac OS X
+
+Microsoft Windows Script Host (JScript)
+
+**********************************************
+
+
+<%= stylesheet_link_tag "application", :media => "all" %>

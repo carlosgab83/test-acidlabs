@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  duration_ms: 1
+  popularity: 1
+  spotify_reference: MyString
+  album_id: 
+  created_at: 2014-08-06 00:25:34
+
+two:
+  name: MyString
+  duration_ms: 1
+  popularity: 1
+  spotify_reference: MyString
+  album_id: 
+  created_at: 2014-08-06 00:25:34

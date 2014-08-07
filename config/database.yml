@@ -1,0 +1,35 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: postgresql
+  host:ec2-54-204-24-154.compute-1.amazonaws.com
+  database: d4juptprn2rrpk
+  username: siinlujnsotkkc
+  password: DrefF8ACzrI4mI6iSvwcWPqMXh
+  
+#  adapter: postgresql
+#  host: localhost
+#  database: acidlabs-development
+#  username: acidlabs
+#  password: acidlabs
+
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: db/production.sqlite3

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  release_date: 2014-08-06
+  spotify_reference: MyString
+  artist_id: 
+  created_at: 2014-08-06 00:23:25
+
+two:
+  name: MyString
+  release_date: 2014-08-06
+  spotify_reference: MyString
+  artist_id: 
+  created_at: 2014-08-06 00:23:25
