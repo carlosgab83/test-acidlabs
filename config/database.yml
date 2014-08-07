@@ -11,10 +11,10 @@ default: &default
 
 development:
  adapter: postgresql
- host: ec2-54-204-24-154.compute-1.amazonaws.com
- database: d4juptprn2rrpk
- username: siinlujnsotkkc
- password: DrefF8ACzrI4mI6iSvwcWPqMXh
+ host: ec2-184-72-238-68.compute-1.amazonaws.com
+ database: dd7kh687s81hr8
+ username: xkxzcuwouszcwu
+ password: wiRQ6gqbfo0SK_F5Ogkv84nSyO
   
 #adapter: postgresql
 #host: localhost
@@ -32,7 +32,7 @@ test:
 
 production:
  adapter: postgresql
- host: ec2-54-204-24-154.compute-1.amazonaws.com
- database: d4juptprn2rrpk
- username: siinlujnsotkkc
- password: DrefF8ACzrI4mI6iSvwcWPqMXh
+ host: ec2-184-72-238-68.compute-1.amazonaws.com
+ database: dd7kh687s81hr8
+ username: xkxzcuwouszcwu
+ password: wiRQ6gqbfo0SK_F5Ogkv84nSyO
