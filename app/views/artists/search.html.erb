@@ -43,6 +43,19 @@
 				<%else%>
 					<%="Downloaded"%>
 				<%end%>
+			&#160;
+			
+				<%if not Artist.downloaded?(remote_artist.id)%>
+					<%= form_tag("/artists/",  
+									:method => "post", 
+									:id=>"form-remote-artist-"+remote_artist.id.to_s) do %>
+									
+						<%= hidden_field_tag 'artist_spotify_reference', remote_artist.id %>
+						<%= hidden_field_tag 'remote_artist_name', @remote_artist_name %>
+						<%= hidden_field_tag 'short', 'true' %>
+						<%= submit_tag("Save and Download Info (Short version)",:class=>"btn btn-link") %>
+					<% end %>
+				<%end%>
 			</div>
 		</td>
       </tr>

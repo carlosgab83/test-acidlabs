@@ -22,6 +22,7 @@ class Artist < ActiveRecord::Base
 	return artist
   end#method
   
+  
   #trae los detalles de los albumes de este artista
   def albums_details
     artist_id = self.id
@@ -44,11 +45,26 @@ class Artist < ActiveRecord::Base
 	not Artist.where(spotify_reference:remote_artist_id ).empty?
   end
   
+  
+  
+  ##############
+  ##############
+   #OJO se duplica solo para efecto que se vea que la funcionalidad funciona con registros reducido --- ojo
+   def Artist.new_artist_and_albums_and_tracks_short(artist_spotify_reference)
+	remote_artist = RSpotify::Artist.find(artist_spotify_reference)
+	artist_params = {name: remote_artist.name, spotify_reference: remote_artist.id, albums_attributes: fill_albums_short(remote_artist.albums)}
+	artist = Artist.new(artist_params)
+	return artist
+  end#method
+  ##############
+  ##############
+  
+  
   private
   
   #llena el arreglo de albums desde los albumes remotos
   def Artist.fill_albums(remote_albums)
-	remote_albums[0..9].collect do |remote_album|
+	remote_albums.collect do |remote_album|
 		{
 			name:remote_album.name,
 			release_date:remote_album.release_date,
@@ -60,7 +76,7 @@ class Artist < ActiveRecord::Base
   
   #llena el arreglo de tracks desde los tracks remotos
   def Artist.fill_tracks(remote_tracks)
-	remote_tracks[0..9].collect do |remote_track|
+	remote_tracks.collect do |remote_track|
 		{
 			name:remote_track.name,
 			spotify_reference:remote_track.id,
@@ -71,6 +87,36 @@ class Artist < ActiveRecord::Base
   end
   
   
+  
+  
+  ##############
+  ##############
+  #OJO se duplica solo para efecto que se vea que la funcionalidad funciona con registros reducido --- ojo
+    #llena el arreglo de albums desde los albumes remotos
+  def Artist.fill_albums_short(remote_albums)
+	remote_albums[0..4].collect do |remote_album|
+		{
+			name:remote_album.name,
+			release_date:remote_album.release_date,
+			spotify_reference:remote_album.id,
+			tracks_attributes:fill_tracks_short(remote_album.tracks)
+		}
+	end#collect
+  end
+  
+  #llena el arreglo de tracks desde los tracks remotos
+  def Artist.fill_tracks_short(remote_tracks)
+	remote_tracks[0..4].collect do |remote_track|
+		{
+			name:remote_track.name,
+			spotify_reference:remote_track.id,
+			duration_ms:remote_track.duration_ms,
+			popularity:remote_track.popularity
+		}
+	end#collect
+  end
+   ##############
+  ##############
 
   
 

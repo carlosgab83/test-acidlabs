@@ -7,6 +7,10 @@ class ArtistsController < ApplicationController
   
   def find
 		@remote_artist_name = params[:remote_artist_name]
+		if @remote_artist_name.nil? or @remote_artist_name.blank?
+			redirect_to :action=> 'search'
+			return
+		end
 		@error = params[:error]
 		@remote_artists = Artist.remote_find_by_name(@remote_artist_name)
 		render :search
@@ -37,7 +41,14 @@ class ArtistsController < ApplicationController
   def create
 	@remote_artist_name = params[:remote_artist_name]
 	artist_spotify_reference = params[:artist_spotify_reference]
-	@artist = Artist.new_artist_and_albums_and_tracks(artist_spotify_reference)
+	@short = params[:short]
+	#ojo este if es solo para poder mostrar la funcionalidad con registros reducidos, ESTO DEBE QUITARSE y solo quedar la linea 47
+	if @short.nil? or @short.blank?
+	  @artist = Artist.new_artist_and_albums_and_tracks(artist_spotify_reference)
+	else
+	  @artist = Artist.new_artist_and_albums_and_tracks_short(artist_spotify_reference)
+	end
+	
 	if @artist.save
 		redirect_to :action=> 'find', :remote_artist_name => @remote_artist_name 
 	else
