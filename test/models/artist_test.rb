@@ -38,7 +38,7 @@ class ArtistTest < ActiveSupport::TestCase
 			puts a.created_at
 			puts a.artist_id
 			a.tracks[0..2].each do |t|
-				puts "     ---new track---"
+				puts "    ---new track---"
 				puts t.id
 				puts t.name
 				puts t.spotify_reference
