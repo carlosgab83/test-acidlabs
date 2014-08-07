@@ -5,22 +5,22 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+ adapter: sqlite3
+ pool: 5
+ timeout: 5000
 
 development:
-  adapter: postgresql
-  host:ec2-54-204-24-154.compute-1.amazonaws.com
-  database: d4juptprn2rrpk
-  username: siinlujnsotkkc
-  password: DrefF8ACzrI4mI6iSvwcWPqMXh
+ adapter: postgresql
+ host:ec2-54-204-24-154.compute-1.amazonaws.com
+ database: d4juptprn2rrpk
+ username: siinlujnsotkkc
+ password: DrefF8ACzrI4mI6iSvwcWPqMXh
   
-#  adapter: postgresql
-#  host: localhost
-#  database: acidlabs-development
-#  username: acidlabs
-#  password: acidlabs
+#adapter: postgresql
+#host: localhost
+#atabase: acidlabs-development
+#username: acidlabs
+#password: acidlabs
 
 
 # Warning: The database defined as "test" will be erased and
@@ -31,5 +31,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+ adapter: postgresql
+ host:ec2-54-204-24-154.compute-1.amazonaws.com
+ database: d4juptprn2rrpk
+ username: siinlujnsotkkc
+ password: DrefF8ACzrI4mI6iSvwcWPqMXh
